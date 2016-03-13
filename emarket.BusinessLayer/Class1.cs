@@ -9,10 +9,14 @@ namespace emarket.BusinessLayer
 {
     public class Class1
     {
-        DBContext context = new DBContext();
-        public void getData()
+        
+
+        public void GetProductById(int prtId)
         {
-           
+            using (var context = new EmarketContext())
+            {
+               return context.Products.FirstOrDefault(p => p.Id); 
+            } 
         }
     }
 }

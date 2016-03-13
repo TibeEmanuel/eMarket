@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace eMarket.DataLayer
 {
-   public class Image
+   public class Image : Entity
     {
        public string ImageUrl { get; set; }
        public int ProductId { get; set; }
        
-       [ForeignKey("ProductId")
+       [ForeignKey("ProductId")]
        public Product Product { get; set; }
     }
 }

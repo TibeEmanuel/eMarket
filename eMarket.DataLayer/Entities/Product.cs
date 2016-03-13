@@ -13,7 +13,7 @@ namespace eMarket.DataLayer
         public double Price { get; set; }
 
         public int ProductCatagoryId { get; set; }
-        public ProductCatagory ProductCatagory { get; set; }
+        public ProductCategory ProductCatagory { get; set; }
 
     }
 }

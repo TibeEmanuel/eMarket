@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace eMarket.DataLayer
 {
-    public class Announcement
+    public class Announcement : Entity
     {
         public DateTime PublishDate { get; set; }
         public int ProductId { get; set; }
