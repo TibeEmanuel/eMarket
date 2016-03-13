@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace emarket.BL
+namespace eMarket.DataLayer
 {
-    public class Class1
+    public class DBContext
     {
+        public int MyProperty { get; set; }
     }
 }
