@@ -13,6 +13,7 @@ namespace eMarket.DataLayer
        public string ImageUrl { get; set; }
        public int ProductId { get; set; }
        
+        //foreignkey annotation
        [ForeignKey("ProductId")]
        public Product Product { get; set; }
     }
