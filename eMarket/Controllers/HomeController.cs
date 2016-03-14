@@ -15,7 +15,7 @@ namespace eMarket.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page is changed after the initiation.";
+            ViewBag.Message = "Your application description page is changed after the initiatio.";
 
             return View();
         }
