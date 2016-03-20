@@ -7,13 +7,13 @@ namespace eMarket.DataLayer.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class initialDataLayer : IMigrationMetadata
+    public sealed partial class addOrders : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(initialDataLayer));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(addOrders));
         
         string IMigrationMetadata.Id
         {
-            get { return "201603190651203_initialDataLayer"; }
+            get { return "201603201558405_addOrders"; }
         }
         
         string IMigrationMetadata.Source

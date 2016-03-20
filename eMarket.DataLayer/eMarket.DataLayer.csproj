@@ -36,9 +36,16 @@
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.IdentityModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,15 +56,25 @@
     <Compile Include="Entities\Announcement.cs" />
     <Compile Include="EmarketContext.cs" />
     <Compile Include="Entities\Entity.cs" />
+    <Compile Include="Entities\IdentityModels.cs" />
+    <Compile Include="Entities\Order.cs" />
     <Compile Include="Entities\Image.cs" />
     <Compile Include="Entities\Product.cs" />
     <Compile Include="Entities\ProductCatagory.cs" />
-    <Compile Include="Migrations\201603190651203_initialDataLayer.cs" />
-    <Compile Include="Migrations\201603190651203_initialDataLayer.Designer.cs">
-      <DependentUpon>201603190651203_initialDataLayer.cs</DependentUpon>
+    <Compile Include="Entities\User.cs" />
+    <Compile Include="Migrations\201603201529269_ordrs.cs" />
+    <Compile Include="Migrations\201603201529269_ordrs.Designer.cs">
+      <DependentUpon>201603201529269_ordrs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603201558405_addOrders.cs" />
+    <Compile Include="Migrations\201603201558405_addOrders.Designer.cs">
+      <DependentUpon>201603201558405_addOrders.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\IRepository.cs" />
+    <Compile Include="Repositories\Repository.cs" />
+    <Compile Include="Repositories\TestRepostiory.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -66,9 +83,15 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201603190651203_initialDataLayer.resx">
-      <DependentUpon>201603190651203_initialDataLayer.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201603201529269_ordrs.resx">
+      <DependentUpon>201603201529269_ordrs.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603201558405_addOrders.resx">
+      <DependentUpon>201603201558405_addOrders.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
