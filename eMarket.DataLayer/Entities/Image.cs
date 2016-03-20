@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace eMarket.DataLayer
+namespace eMarket.Datalayer
 {
    public class Image : Entity
     {

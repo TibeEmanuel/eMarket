@@ -5,13 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace eMarket.DataLayer
+namespace eMarket.Datalayer
 {
     public class EmarketContext : DbContext
     {
-        public EmarketContext()
+        public EmarketContext() : base("EmarketContext_localDb")
         {
-            Database.SetInitializer<EmarketContext>(new CreateDatabaseIfNotExists<EmarketContext>()); 
+            Database.SetInitializer(new CreateDatabaseIfNotExists<EmarketContext>()); 
         }
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductCategory> ProductCategories { get; set; }

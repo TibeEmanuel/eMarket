@@ -1,9 +1,10 @@
-﻿using eMarket.DataLayer;
+﻿using eMarket.Datalayer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 
 namespace emarket.BusinessLayer
 {
@@ -11,12 +12,11 @@ namespace emarket.BusinessLayer
     {
         
 
-        public void GetProductById(int prtId)
+        public void GetProductById(int productId)
         {
-            using (var context = new EmarketContext())
-            {
-               return context.Products.FirstOrDefault(p => p.Id); 
-            } 
+            var context = new EmarketContext();
+            context.Products.FirstOrDefault(p => p.id== productId);
+
         }
     }
 }

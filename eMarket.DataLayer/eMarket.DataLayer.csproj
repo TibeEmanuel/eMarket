@@ -47,16 +47,28 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\Announcement.cs" />
-    <Compile Include="DBContext.cs" />
+    <Compile Include="EmarketContext.cs" />
     <Compile Include="Entities\Entity.cs" />
     <Compile Include="Entities\Image.cs" />
     <Compile Include="Entities\Product.cs" />
     <Compile Include="Entities\ProductCatagory.cs" />
+    <Compile Include="Migrations\201603190651203_initialDataLayer.cs" />
+    <Compile Include="Migrations\201603190651203_initialDataLayer.Designer.cs">
+      <DependentUpon>201603190651203_initialDataLayer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201603190651203_initialDataLayer.resx">
+      <DependentUpon>201603190651203_initialDataLayer.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
