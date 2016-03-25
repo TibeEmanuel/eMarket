@@ -8,13 +8,12 @@ using System.Threading.Tasks;
 
 namespace eMarket.Datalayer
 {
-   public class Image : Entity
+   public class Image 
     {
+       [Key]
+       public int ImageId { get; set; }
        public string ImageUrl { get; set; }
        public int ProductId { get; set; }
        
-        //foreignkey annotation
-       [ForeignKey("ProductId")]
-       public Product Product { get; set; }
     }
 }

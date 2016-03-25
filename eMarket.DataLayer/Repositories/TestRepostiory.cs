@@ -9,9 +9,9 @@ namespace eMarket.DataLayer.Repositories
    public class TestRepostiory : IRepository
     {
 
-        public void Add<T>(T Entity) where T : Datalayer.Entity
-        {
-            throw new NotImplementedException();
-        }
+        //public void Add<TModel>(TModel Entity) where TModel : Datalayer.Entity
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }

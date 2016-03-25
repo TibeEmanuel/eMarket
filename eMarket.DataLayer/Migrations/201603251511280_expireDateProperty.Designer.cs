@@ -7,13 +7,13 @@ namespace eMarket.DataLayer.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class addOrders : IMigrationMetadata
+    public sealed partial class expireDateProperty : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(addOrders));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(expireDateProperty));
         
         string IMigrationMetadata.Id
         {
-            get { return "201603201558405_addOrders"; }
+            get { return "201603251511280_expireDateProperty"; }
         }
         
         string IMigrationMetadata.Source
