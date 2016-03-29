@@ -9,17 +9,14 @@ using System.Threading.Tasks;
 
 namespace eMarket.DataLayer.Entities
 {
-    public class Emarket_User: IdentityUser
+    public class EmarketUser: IdentityUser
     {
-        public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<Emarket_User> manager)
+        public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<EmarketUser> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
             var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
             // Add custom user claims here
             return userIdentity;
         }
-
-        public String PostDate { get; set; }
-        public String ExpireDate { get; set; }
     }
 }

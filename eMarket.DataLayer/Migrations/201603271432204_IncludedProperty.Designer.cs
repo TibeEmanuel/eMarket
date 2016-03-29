@@ -7,13 +7,13 @@ namespace eMarket.DataLayer.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class expireDateProperty : IMigrationMetadata
+    public sealed partial class IncludedProperty : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(expireDateProperty));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(IncludedProperty));
         
         string IMigrationMetadata.Id
         {
-            get { return "201603251511280_expireDateProperty"; }
+            get { return "201603271432204_IncludedProperty"; }
         }
         
         string IMigrationMetadata.Source

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using eMarket.Datalayer.Entities;
 
 namespace eMarket.DataLayer.Repositories
 {
@@ -13,5 +14,15 @@ namespace eMarket.DataLayer.Repositories
         //{
         //    throw new NotImplementedException();
         //}
+
+        public IQueryable<Product> GetProducts()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IQueryable<ProductCategory> GetProductCategoryById(int productCategoryId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

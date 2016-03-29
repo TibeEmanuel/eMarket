@@ -8,15 +8,18 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using eMarket.DataLayer;
 using eMarket.BusinessLayer.ViewModels;
 using eMarket.DataLayer.Entities;
+using eMarket.BusinessLayer.ApplicationManager;
 
 namespace git_test.Controllers
 {
     [Authorize]
     public class AccountController : Controller
     {
+
+        //TODO... DI injection with ninject
+
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
@@ -153,7 +156,7 @@ namespace git_test.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new Emarket_User { UserName = model.Email, Email = model.Email };
+                var user = new EmarketUser { UserName = model.Email, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -369,7 +372,7 @@ namespace git_test.Controllers
                 {
                     return View("ExternalLoginFailure");
                 }
-                var user = new Emarket_User { UserName = model.Email, Email = model.Email };
+                var user = new EmarketUser { UserName = model.Email, Email = model.Email };
                 var result = await UserManager.CreateAsync(user);
                 if (result.Succeeded)
                 {

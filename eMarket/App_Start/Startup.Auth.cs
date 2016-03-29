@@ -7,12 +7,22 @@ using Microsoft.Owin.Security.Google;
 using Owin;
 using eMarket.DataLayer.Entities;
 using eMarket.Datalayer;
-using eMarket.DataLayer;
+using eMarket.BusinessLayer.ApplicationManager;
 
 namespace eMarket
 {
     public partial class Startup
     {
+        //TODO
+
+        //private IApplicationSignInManager _signInManager;
+
+        //public Startup( IApplicationSignInManager signInManager)
+        //{
+           
+        //    _signInManager = signInManager;    
+        //}
+
         // For more information on configuring authentication, please visit http://go.microsoft.com/fwlink/?LinkId=301864
         public void ConfigureAuth(IAppBuilder app)
         {
@@ -32,7 +42,7 @@ namespace eMarket
                 {
                     // Enables the application to validate the security stamp when the user logs in.
                     // This is a security feature which is used when you change a password or add an external login to your account.  
-                    OnValidateIdentity = SecurityStampValidator.OnValidateIdentity<ApplicationUserManager, Emarket_User>(
+                    OnValidateIdentity = SecurityStampValidator.OnValidateIdentity<ApplicationUserManager, EmarketUser>(
                         validateInterval: TimeSpan.FromMinutes(30),
                         regenerateIdentity: (manager, user) => user.GenerateUserIdentityAsync(manager))
                 }

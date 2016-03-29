@@ -1,4 +1,5 @@
-﻿using System;
+﻿using eMarket.BusinessLayer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,9 +11,18 @@ namespace eMarket.Controllers
 {
     public class HomeController : Controller
     {
+        //TODO... 
+        private IOrderByName _productOrder;
+
+        public HomeController(IOrderByName productOrder)
+        {
+            _productOrder = productOrder;
+        }
+
         public ActionResult Index()
         {
-            return View();
+            
+            return View(_productOrder.ProductByAscendingOrder());
         }
 
         public ActionResult About()
