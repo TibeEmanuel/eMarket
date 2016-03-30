@@ -23,7 +23,7 @@ namespace eMarket.BusinessLayer.Queries
         public ViewModel Execute()
         {
             Product product = repository.GetProductById(_productId);
-            var model = new ProductViewModel
+            ProductViewModel model = new ProductViewModel
                      {
                          Name = product.Name,
                          Price = product.Price,

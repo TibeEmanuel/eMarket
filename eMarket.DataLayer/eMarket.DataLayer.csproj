@@ -99,20 +99,18 @@
     <Compile Include="Migrations\201603271432204_IncludedProperty.Designer.cs">
       <DependentUpon>201603271432204_IncludedProperty.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201603291547228_IncludedSampleData.cs" />
+    <Compile Include="Migrations\201603291547228_IncludedSampleData.Designer.cs">
+      <DependentUpon>201603291547228_IncludedSampleData.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\BaseRepository.cs" />
-    <Compile Include="Repositories\IProductRepository.cs" />
-    <Compile Include="Repositories\IRepository.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="Repositories\ImageRepository.cs" />
+    <Compile Include="Repositories\ProductCategoryRepository.cs" />
     <Compile Include="Repositories\ProductRepository.cs" />
-    <Compile Include="Repositories\Repository.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Repositories\TestRepostiory.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="Repositories\RepositoryFactory.cs" />
+    <Compile Include="SampleData.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -126,6 +124,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201603271432204_IncludedProperty.resx">
       <DependentUpon>201603271432204_IncludedProperty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603291547228_IncludedSampleData.resx">
+      <DependentUpon>201603291547228_IncludedSampleData.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

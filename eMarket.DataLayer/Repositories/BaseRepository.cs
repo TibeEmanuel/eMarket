@@ -5,22 +5,48 @@ using System.Text;
 using System.Threading.Tasks;
 using eMarket.Datalayer;
 using eMarket.DataLayer.Entities;
+using System.Data.Entity;
 
 namespace eMarket.DataLayer.Repositories
 {
-    public class BaseRepository 
+    public class BaseRepository
     {
-        private EmarketContext _context;
 
-
-        public BaseRepository(EmarketContext context)
+        public void AddOrUpdateEntity<TEntity>(TEntity entity) where TEntity : Entity
         {
-            _context = context; 
+            using (var _context = new EmarketContext())
+            {
+                if (entity.Id == 0)
+                {
+                    _context.Set<TEntity>().Add(entity);
+                }
+                else
+                {
+                    _context.Set<TEntity>().Attach(entity);
+                    _context.Entry(entity).State = EntityState.Modified;
+                }
+
+                _context.SaveChanges();
+            }
+        }
+        public TEntity GetById<TEntity>(int id) where TEntity:Entity
+        {
+            using (var _context = new EmarketContext())
+            {
+                return _context.Set<TEntity>().FirstOrDefault(p => p.Id == id);
+            }
+            
         }
 
-        public void Save<T>(T entity) where T : Entity
+        public IQueryable<TEntity> Get<TEntity>(TEntity entity) where TEntity : Entity
         {
-            _context.Set<T>().Add(entity); 
+            using (var _context = new EmarketContext())
+            {
+                return _context.Set<TEntity>();
+            }
         }
+
+
+
     }
 }

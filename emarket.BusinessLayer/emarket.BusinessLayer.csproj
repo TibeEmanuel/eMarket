@@ -87,11 +87,15 @@
   <ItemGroup>
     <Compile Include="ApplicationManager\ApplicationSignInManager.cs" />
     <Compile Include="ApplicationManager\ApplicationUserManager.cs" />
-    <Compile Include="IOrderByName.cs" />
-    <Compile Include="OrderByName.cs" />
-    <Compile Include="Queries\GetProductForEditQuery.cs" />
-    <Compile Include="Queries\GetCreateProductIdQuery.cs" />
-    <Compile Include="Queries\IQuery.cs" />
+    <Compile Include="Queries\GetProductForEditQuery.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Queries\IQuery.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Queries\SaveAndGetCreatedProductIdQuery.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Services\EmailService.cs" />
     <Compile Include="Services\SmsService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

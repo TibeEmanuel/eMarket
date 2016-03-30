@@ -12,17 +12,17 @@ namespace eMarket.Controllers
     public class HomeController : Controller
     {
         //TODO... 
-        private IOrderByName _productOrder;
+        //private IOrderByName _productOrder;
 
-        public HomeController(IOrderByName productOrder)
-        {
-            _productOrder = productOrder;
-        }
+        //public HomeController(IOrderByName productOrder)
+        //{
+        //    _productOrder = productOrder;
+        //}
 
         public ActionResult Index()
         {
             
-            return View(_productOrder.ProductByAscendingOrder());
+            return View();
         }
 
         public ActionResult About()

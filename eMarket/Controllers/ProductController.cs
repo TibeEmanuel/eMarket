@@ -20,7 +20,7 @@ namespace eMarket.Controllers
         [HttpPost]
         public ActionResult UploadProduct(ProductViewModel model)
         {
-            query = new GetCreateProductIdQuery(model);
+            query = new SaveAndGetCreatedProductIdQuery(model);
             ProductViewModel responseModel = (ProductViewModel)query.Execute();  
             return RedirectToAction("EditProduct", new  { productId = responseModel.ProductId });
         }
