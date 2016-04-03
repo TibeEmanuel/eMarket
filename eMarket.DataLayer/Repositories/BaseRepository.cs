@@ -12,6 +12,8 @@ namespace eMarket.DataLayer.Repositories
     public class BaseRepository
     {
 
+        /////////////////////////////////////////////////////////////////////////////////////////
+
         public void AddOrUpdateEntity<TEntity>(TEntity entity) where TEntity : Entity
         {
             using (var _context = new EmarketContext())
@@ -29,6 +31,10 @@ namespace eMarket.DataLayer.Repositories
                 _context.SaveChanges();
             }
         }
+
+
+         /////////////////////////////////////////////////////////////////////////////////////////
+
         public TEntity GetById<TEntity>(int id) where TEntity:Entity
         {
             using (var _context = new EmarketContext())
@@ -38,6 +44,8 @@ namespace eMarket.DataLayer.Repositories
             
         }
 
+        /////////////////////////////////////////////////////////////////////////////////////////
+
         public IQueryable<TEntity> Get<TEntity>(TEntity entity) where TEntity : Entity
         {
             using (var _context = new EmarketContext())
@@ -46,6 +54,29 @@ namespace eMarket.DataLayer.Repositories
             }
         }
 
+        /////////////////////////////////////////////////////////////////////////////////////////
+
+        public void Remove<TEntity>(TEntity entity) where TEntity:Entity
+        {
+            using (var _context = new EmarketContext())
+            {
+                _context.Entry<TEntity>(entity).State = EntityState.Deleted;
+                _context.SaveChanges();
+            }
+        }
+
+        /////////////////////////////////////////////////////////////////////////////////////////
+
+        public void RemoveById<TEntity>(int id) where TEntity : Entity
+        {
+            using (var _context = new EmarketContext())
+            {
+                TEntity entity = GetById<TEntity>(id);
+
+                 _context.Entry<TEntity>(entity).State=EntityState.Deleted;
+                 _context.SaveChanges();
+            }
+        }
 
 
     }

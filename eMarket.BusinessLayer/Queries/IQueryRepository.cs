@@ -6,8 +6,9 @@ using System.Text;
 
 namespace eMarket.BusinessLayer.Queries
 {
-    public interface IQuery
+    public interface IQueryRepository
     {
+     
          ViewModel Execute();
     }
 }

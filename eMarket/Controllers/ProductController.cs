@@ -1,5 +1,7 @@
 ﻿using eMarket.BusinessLayer.Queries;
 using eMarket.BusinessLayer.ViewModels;
+using eMarket.Datalayer;
+using eMarket.DataLayer.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +13,14 @@ namespace eMarket.Controllers
     [Authorize]
     public class ProductController : Controller
     {
-        private IQuery query { get; set; }
+        private IQueryRepository query { get; set; }
+        private IProductRepository _repository;
+
+        public ProductController(IProductRepository repository)
+        {
+            _repository = repository;
+        }
+
         // GET: Product
         public ActionResult UploadProduct()
         {
@@ -20,10 +29,13 @@ namespace eMarket.Controllers
         [HttpPost]
         public ActionResult UploadProduct(ProductViewModel model)
         {
-            query = new SaveAndGetCreatedProductIdQuery(model);
-            ProductViewModel responseModel = (ProductViewModel)query.Execute();  
+            query = new SaveAndGetCreatedProductIdQuery(_repository,model);
+            ProductViewModel responseModel = (ProductViewModel)query.Execute();
+
             return RedirectToAction("EditProduct", new  { productId = responseModel.ProductId });
         }
+
+
         public ActionResult EditProduct(int productId)
         {
             query = new GetProductForEditQuery(productId);

@@ -9,20 +9,22 @@ using System.Threading.Tasks;
 
 namespace eMarket.BusinessLayer.Queries
 {
-    public class GetProductForEditQuery : IQuery
+    public  class GetProductForEditQuery : IQueryRepository
     {
         private int _productId { get; set; }
-        private IProductRepository repository = new ProductRepository();
+        private IProductRepository repository;
 
         public GetProductForEditQuery(int productId)
         {
+            repository = new ProductRepository();
             _productId = productId;
         }
         
 
-        public ViewModel Execute()
+        public  ViewModel Execute()
         {
             Product product = repository.GetProductById(_productId);
+
             ProductViewModel model = new ProductViewModel
                      {
                          Name = product.Name,

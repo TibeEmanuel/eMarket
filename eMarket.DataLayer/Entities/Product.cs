@@ -17,7 +17,7 @@ namespace eMarket.Datalayer.Entities
 
         public int ProductCategoryId { get; set; }
         [ForeignKey("ProductCategoryId")]
-        public ProductCategory ProductCategory;
+        public  ProductCategory ProductCategory;
         public string SellerId { get; set; }
         [ForeignKey("SellerId")]
         public EmarketUser Seller { get; set; }

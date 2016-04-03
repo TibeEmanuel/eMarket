@@ -75,8 +75,9 @@ namespace eMarket.App_Start
             //the context object. DI helps us by sharing the catched copy of the context object and dispose it after every request.
             kernel.Bind<EmarketContext>().To<EmarketContext>().InRequestScope();
 
-            //kernel.Bind<IRepository>().To<Repository>().InRequestScope();
-            //kernel.Bind<IOrderByName>().To<OrderByName>().InRequestScope();
+            kernel.Bind<IImageRepository>().To<ImageRepository>().InRequestScope();
+            kernel.Bind<IProductRepository>().To<ProductRepository>().InRequestScope();
+            kernel.Bind<IProductCategoryRepository>().To<ProductCategoryRepository>().InRequestScope();
         }        
     }
 }

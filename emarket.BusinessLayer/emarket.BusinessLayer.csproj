@@ -90,7 +90,7 @@
     <Compile Include="Queries\GetProductForEditQuery.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Queries\IQuery.cs">
+    <Compile Include="Queries\IQueryRepository.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Queries\SaveAndGetCreatedProductIdQuery.cs">

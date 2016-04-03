@@ -23,7 +23,7 @@ namespace eMarket.DataLayer.Repositories
         public int SaveProductReturnId(Product product)
         {
             
-            AddOrUpdateEntity(product);
+            AddOrUpdateEntity<Product>(product);
 
             return product.Id;
         }
