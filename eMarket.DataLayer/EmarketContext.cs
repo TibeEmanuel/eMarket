@@ -20,7 +20,7 @@ namespace eMarket.Datalayer
         public EmarketContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
-            Database.SetInitializer<EmarketContext>(new SampleData()); 
+            Database.SetInitializer<EmarketContext>(null); 
             
         }
 

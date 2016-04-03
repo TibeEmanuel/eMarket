@@ -109,7 +109,6 @@
     <Compile Include="Repositories\ImageRepository.cs" />
     <Compile Include="Repositories\ProductCategoryRepository.cs" />
     <Compile Include="Repositories\ProductRepository.cs" />
-    <Compile Include="SampleData.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
