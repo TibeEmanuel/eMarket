@@ -82,6 +82,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contract\IProductCategoryRepository.cs" />
+    <Compile Include="Contract\IProductRepository.cs" />
+    <Compile Include="Contract\IImageRepository.cs" />
+    <Compile Include="Contract\IRepositoryFactory.cs" />
+    <Compile Include="Contract\RepositoryFactory.cs" />
     <Compile Include="Entities\Announcement.cs" />
     <Compile Include="EmarketContext.cs" />
     <Compile Include="Entities\EmarketUser.cs" />

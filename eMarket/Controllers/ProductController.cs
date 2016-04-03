@@ -1,6 +1,7 @@
-﻿using eMarket.BusinessLayer.Queries;
+﻿using eMarket.BusinessLayer.Queries; 
 using eMarket.BusinessLayer.ViewModels;
 using eMarket.Datalayer;
+using eMarket.DataLayer.Contract;
 using eMarket.DataLayer.Repositories;
 using System;
 using System.Collections.Generic;
@@ -13,33 +14,30 @@ namespace eMarket.Controllers
     [Authorize]
     public class ProductController : Controller
     {
-        private IQueryRepository query { get; set; }
-        private IProductRepository _repository;
-
-        public ProductController(IProductRepository repository)
+        public ProductController(IQueryDispatcher queryDispatcher)
         {
-            _repository = repository;
+            _queryDispatcher = queryDispatcher;
         }
-
+        private IQueryDispatcher _queryDispatcher { get; set; }
         // GET: Product
         public ActionResult UploadProduct()
         {
-            return View();
+            var model = _queryDispatcher.Execute<ProductViewModel>(new GetProductModelWithCategoriesQuery());
+
+            return View(model);
         }
         [HttpPost]
-        public ActionResult UploadProduct(ProductViewModel model)
+        public ActionResult UploadProduct(ProductViewModel pvModel)
         {
-            query = new SaveAndGetCreatedProductIdQuery(_repository,model);
-            ProductViewModel responseModel = (ProductViewModel)query.Execute();
+            var model = _queryDispatcher.Execute<ProductViewModel>(new SaveAndGetCreatedProductIdQuery(pvModel));
 
-            return RedirectToAction("EditProduct", new  { productId = responseModel.ProductId });
+            return RedirectToAction("EditProduct", new { productId = model.ProductId });
         }
 
 
         public ActionResult EditProduct(int productId)
         {
-            query = new GetProductForEditQuery(productId);
-            var model = (ProductViewModel)query.Execute(); 
+            var model = _queryDispatcher.Execute<ProductViewModel>(new GetProductForEditQuery(productId)); 
             return View(model);
         }
     }

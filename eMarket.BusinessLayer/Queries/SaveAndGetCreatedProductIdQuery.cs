@@ -1,5 +1,6 @@
 ﻿using eMarket.BusinessLayer.ViewModels;
 using eMarket.Datalayer.Entities;
+using eMarket.DataLayer.Contract;
 using eMarket.DataLayer.Repositories;
 using System;
 using System.Collections.Generic;
@@ -9,20 +10,17 @@ using System.Threading.Tasks;
 
 namespace eMarket.BusinessLayer.Queries
 {
-    public class SaveAndGetCreatedProductIdQuery : IQueryRepository
+    public class SaveAndGetCreatedProductIdQuery : Query
     {
         private ProductViewModel _productMdl { get; set; }
-        private IProductRepository _repository;
-
-        public SaveAndGetCreatedProductIdQuery(IProductRepository repo, ProductViewModel model)
-        {
-            _repository = repo;
-            //_repository = new ProductRepository();
+      
+        public SaveAndGetCreatedProductIdQuery(ProductViewModel model)
+        {         
             _productMdl = model;
         }
 
 
-        public ViewModel Execute()
+        public override ViewModel Execute()
         {
             var product = new Product()
             {
@@ -32,8 +30,8 @@ namespace eMarket.BusinessLayer.Queries
                 SellerId = _productMdl.SellerId,
                 Description = _productMdl.Description
             };
-            
-            _productMdl.ProductId = _repository.SaveProductReturnId(product);
+
+            _productMdl.ProductId = RepositoryFactory.ProductRepository.SaveProductReturnId(product); 
 
             return _productMdl;
 

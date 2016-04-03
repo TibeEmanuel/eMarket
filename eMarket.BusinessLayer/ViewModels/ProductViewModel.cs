@@ -15,7 +15,7 @@ namespace eMarket.BusinessLayer.ViewModels
         public double Price { get; set; }
 
         public int ProductCategoryId { get; set; }
-
+        public IEnumerable<ProductCategoryViewModel> ProductCategories { get; set; }
         public string SellerId { get; set; }
         public List<int> ImageIds { get; set; }
 
