@@ -1,4 +1,4 @@
-﻿using eMarket.BusinessLayer.Services;
+﻿//using eMarket.BusinessLayer.Services;
 using eMarket.Datalayer;
 using eMarket.DataLayer.Entities;
 using Microsoft.AspNet.Identity;
@@ -61,8 +61,8 @@ namespace eMarket.BusinessLayer.ApplicationManager
                 Subject = "Security Code",
                 BodyFormat = "Your security code is {0}"
             });
-            manager.EmailService = new EmailService();
-            manager.SmsService = new SmsService();
+            //manager.EmailService = new EmailService();
+            //manager.SmsService = new SmsService();
             var dataProtectionProvider = options.DataProtectionProvider;
             if (dataProtectionProvider != null)
             {

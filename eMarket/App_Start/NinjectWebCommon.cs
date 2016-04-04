@@ -11,7 +11,7 @@ namespace eMarket.App_Start
     using Ninject;
     using Ninject.Web.Common;
     using Microsoft.AspNet.Identity;
-    using eMarket.BusinessLayer.Services;
+    //using eMarket.BusinessLayer.Services;
     using eMarket.Datalayer;
     using eMarket.DataLayer.Repositories;
     using eMarket.BusinessLayer;
@@ -68,8 +68,8 @@ namespace eMarket.App_Start
         {
             // TODO... either smsService or emailService ?
 
-            kernel.Bind<IIdentityMessageService>().To<SmsService>().InRequestScope();
-            kernel.Bind<IIdentityMessageService>().To<EmailService>().InRequestScope();
+            //kernel.Bind<IIdentityMessageService>().To<SmsService>().InRequestScope();
+            //kernel.Bind<IIdentityMessageService>().To<EmailService>().InRequestScope();
 
             //The context is called several times in the application  so we are worried about recreating 
             //the context object. DI helps us by sharing the catched copy of the context object and dispose it after every request.
