@@ -18,5 +18,6 @@ namespace eMarket.DataLayer.Entities
             // Add custom user claims here
             return userIdentity;
         }
+        
     }
 }

@@ -46,11 +46,18 @@ namespace eMarket.DataLayer.Repositories
 
         /////////////////////////////////////////////////////////////////////////////////////////
 
-        public IQueryable<TEntity> Get<TEntity>(TEntity entity) where TEntity : Entity
+        //public IQueryable<TEntity> Get<TEntity>(TEntity entity) where TEntity : Entity
+        //{
+        //    using (var _context = new EmarketContext())
+        //    {
+        //        return _context.Set<TEntity>();
+        //    }
+        //}
+        public IEnumerable<TEntity> Get<TEntity>() where TEntity : Entity
         {
             using (var _context = new EmarketContext())
             {
-                return _context.Set<TEntity>();
+                return _context.Set<TEntity>().ToList(); 
             }
         }
 

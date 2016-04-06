@@ -1,5 +1,6 @@
 ﻿using eMarket.Datalayer;
 using eMarket.Datalayer.Entities;
+using eMarket.DataLayer.Contract;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -9,14 +10,7 @@ using System.Threading.Tasks;
 
 namespace eMarket.DataLayer.Repositories
 {
-    public interface IProductRepository
-    {
-        int SaveProductReturnId(Product product);
-
-        Product GetProductById(int _productId);
-    }
-
-
+  
     public class ProductRepository :BaseRepository, IProductRepository
     {
     

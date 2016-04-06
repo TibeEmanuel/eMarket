@@ -1,39 +1,46 @@
 ﻿using eMarket.BusinessLayer.ViewModels;
 using eMarket.Datalayer.Entities;
+using eMarket.DataLayer.Contract;
+using eMarket.DataLayer.Entities;
 using eMarket.DataLayer.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNet.Identity;
+using System.Security.Claims;
+using System.Web;
+
+
 
 namespace eMarket.BusinessLayer.Queries
 {
-    public class SaveAndGetCreatedProductIdQuery : IQueryRepository
+    public class SaveAndGetCreatedProductIdQuery : Query
     {
         private ProductViewModel _productMdl { get; set; }
-        private IProductRepository _repository;
-
-        public SaveAndGetCreatedProductIdQuery(IProductRepository repo, ProductViewModel model)
+        //private string _userId;
+        public SaveAndGetCreatedProductIdQuery( ProductViewModel model)
         {
-            _repository = repo;
-            //_repository = new ProductRepository();
+           
             _productMdl = model;
         }
 
 
-        public ViewModel Execute()
+        public override ViewModel Execute()
         {
+           
             var product = new Product()
             {
                 Name = _productMdl.Name,
                 Price = _productMdl.Price,
                 ProductCategoryId = _productMdl.ProductCategoryId,
-                SellerId = _productMdl.SellerId,
+                SellerId =_productMdl.SellerId, 
                 Description = _productMdl.Description
+              
             };
-            
-            _productMdl.ProductId = _repository.SaveProductReturnId(product);
+
+            _productMdl.ProductId = RepositoryFactory.ProductRepository.SaveProductReturnId(product); 
 
             return _productMdl;
 
